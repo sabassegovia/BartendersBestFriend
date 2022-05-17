@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { TiSocialInstagram } from "react-icons/ti";
 import styles from "../styles/Home.module.css";
+import { BiSearchAlt2 } from "react-icons/bi";
+import DisplayNewDrinkComponent from "../components/DisplayNewDrinkComponent.js";
 
 const DisplayNewDrink = () => {
   return (
@@ -13,10 +15,41 @@ const DisplayNewDrink = () => {
             <a className={styles.mainHeader}>Bartender&#39;s Best Friend</a>
           </Link>
         </h1>
-        <p className={styles.code}>Photo from api call will go here</p>
+
+        <div className={styles.topnav}>
+          <Link href="/">
+            <a className={styles.active}>Home</a>
+          </Link>
+          <Link href="/drinkdatabase">
+            <a>Database</a>
+          </Link>
+          <Link href="/aboutme">
+            <a>About</a>
+          </Link>
+          <a
+            href="https://www.instagram.com/lovenbooze_/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Social
+          </a>
+          <div className={styles.searchContainer}>
+            <input type="text" placeholder="Search drink.." />
+            <button type="submit">
+              <BiSearchAlt2 />
+            </button>
+          </div>
+        </div>
+
+        {/* <p className={styles.code}>Photo from api call will go here</p> */}
         <p className={styles.description}>
-          Get started by choosing an option below
+          Here&#39;s what you&#39;ll need to make DRINK_NAME
         </p>
+        <ol>
+          <DisplayNewDrinkComponent />
+          <DisplayNewDrinkComponent />
+          <DisplayNewDrinkComponent />
+        </ol>
       </main>
       <div className={styles.lrButtons}>
         <Link href="/adddrink">
@@ -24,6 +57,9 @@ const DisplayNewDrink = () => {
         </Link>
         <Link href="/">
           <button className={styles.rButton}>Home</button>
+        </Link>
+        <Link href="/drinkdatabase">
+          <button className={styles.rButton}>Drink&#39;s Archive</button>
         </Link>
       </div>
     </>

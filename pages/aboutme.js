@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { TiSocialInstagram } from "react-icons/ti";
 import styles from "../styles/Home.module.css";
+import { BiSearchAlt2 } from "react-icons/bi";
 
 const AboutMe = () => {
   return (
@@ -13,6 +14,32 @@ const AboutMe = () => {
             <a className={styles.mainHeader}>Bartender&#39;s Best Friend</a>
           </Link>
         </h1>
+
+        <div className={styles.topnav}>
+          <Link href="/">
+            <a className={styles.active}>Home</a>
+          </Link>
+          <Link href="/drinkdatabase">
+            <a>Database</a>
+          </Link>
+          <Link href="/aboutme">
+            <a>About</a>
+          </Link>
+          <a
+            href="https://www.instagram.com/lovenbooze_/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Social
+          </a>
+          <div className={styles.searchContainer}>
+            <input type="text" placeholder="Search drink.." />
+            <button type="submit">
+              <BiSearchAlt2 />
+            </button>
+          </div>
+        </div>
+
         <p className={styles.code}>My Story</p>
         <p className={styles.code}>[photo of alex here]</p>
         <p className={styles.description}>

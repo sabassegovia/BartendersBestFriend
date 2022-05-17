@@ -1,0 +1,24 @@
+.verticalMenu li {
+  background-color: gray; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+  outline: 2px outset #008080;
+}
+
+.verticalMenu li:hover {
+  background-color: #008080; /* Aqua background on mouse-over */
+  cursor: pointer;
+}
+
+.verticalMenu li.active {
+  background-color: #480606; /* Add a crimson color to the "active/current" link */
+  color: white;
+}
+
+.verticalMenu {
+  width: 38%;
+  height: 255px;
+  overflow-y: auto;
+}

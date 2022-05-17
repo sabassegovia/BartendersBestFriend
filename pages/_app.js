@@ -3,9 +3,9 @@ import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import { TiSocialInstagram } from "react-icons/ti";
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <div className={styles.container}>
       <Head>
         <title>Bartender&#39;s Best Friend</title>
         <meta
@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Component {...pageProps} />
 
       <footer className={styles.footer}>
@@ -31,5 +32,3 @@ function MyApp({ Component, pageProps }) {
     </div>
   );
 }
-
-export default MyApp;
