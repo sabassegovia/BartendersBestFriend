@@ -11,7 +11,7 @@ import Cocktail from "../mongoose/models.js";
 
 export default function DrinkDatabase({ cocktails }) {
   //map these to list
-  console.log(cocktails);
+
   return (
     <>
       <main className={styles.main}>

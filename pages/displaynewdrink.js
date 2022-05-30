@@ -7,26 +7,34 @@ import { BiSearchAlt2 } from "react-icons/bi";
 import DisplayNewDrinkComponent from "../components/DisplayNewDrinkComponent.js";
 
 const DisplayNewDrink = () => {
+  const clearLocalStorage = () => {
+    localStorage.clear();
+  };
   return (
     <>
       <main className={styles.main}>
         <h1 className={styles.title}>
           <Link href="/">
-            <a className={styles.mainHeader}>Bartender&#39;s Best Friend</a>
+            <a onClick={clearLocalStorage} className={styles.mainHeader}>
+              Bartender&#39;s Best Friend
+            </a>
           </Link>
         </h1>
 
         <div className={styles.topnav}>
           <Link href="/">
-            <a className={styles.active}>Home</a>
+            <a onClick={clearLocalStorage} className={styles.active}>
+              Home
+            </a>
           </Link>
           <Link href="/drinkdatabase">
-            <a>Database</a>
+            <a onClick={clearLocalStorage}>Database</a>
           </Link>
           <Link href="/aboutme">
-            <a>About</a>
+            <a onClick={clearLocalStorage}>About</a>
           </Link>
           <a
+            onClick={clearLocalStorage}
             href="https://www.instagram.com/lovenbooze_/?hl=en"
             target="_blank"
             rel="noopener noreferrer"
@@ -35,7 +43,7 @@ const DisplayNewDrink = () => {
           </a>
           <div className={styles.searchContainer}>
             <input type="text" placeholder="Search drink.." />
-            <button type="submit">
+            <button onClick={clearLocalStorage} type="submit">
               <BiSearchAlt2 />
             </button>
           </div>
@@ -43,23 +51,34 @@ const DisplayNewDrink = () => {
 
         {/* <p className={styles.code}>Photo from api call will go here</p> */}
         <p className={styles.description}>
-          Here&#39;s what you&#39;ll need to make DRINK_NAME
+          Here&#39;s what you&#39;ll need to make{" "}
+          {JSON.parse(localStorage.getItem("drinkName"))}
         </p>
         <ol>
-          <DisplayNewDrinkComponent />
-          <DisplayNewDrinkComponent />
-          <DisplayNewDrinkComponent />
+          {JSON.parse(localStorage.getItem("dataArray")).map(
+            (ingredient, i) => {
+              return (
+                <DisplayNewDrinkComponent ingredient={ingredient} key={i} />
+              );
+            }
+          )}
         </ol>
       </main>
       <div className={styles.lrButtons}>
         <Link href="/adddrink">
-          <button className={styles.lButton}>Make Another</button>
+          <button onClick={clearLocalStorage} className={styles.lButton}>
+            Make Another
+          </button>
         </Link>
         <Link href="/">
-          <button className={styles.rButton}>Home</button>
+          <button onClick={clearLocalStorage} className={styles.rButton}>
+            Home
+          </button>
         </Link>
         <Link href="/drinkdatabase">
-          <button className={styles.rButton}>Drink&#39;s Archive</button>
+          <button onClick={clearLocalStorage} className={styles.rButton}>
+            Drink&#39;s Archive
+          </button>
         </Link>
       </div>
     </>

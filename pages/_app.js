@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
+import Link from "next/link";
 import { TiSocialInstagram } from "react-icons/ti";
 
 export default function MyApp({ Component, pageProps }) {
@@ -27,7 +28,7 @@ export default function MyApp({ Component, pageProps }) {
           lovenbooze_
           <span className={styles.logo}></span>
         </a>
-        <a href="/aboutme">My Story</a>
+        <Link href="/aboutme">My Story</Link>
       </footer>
     </div>
   );

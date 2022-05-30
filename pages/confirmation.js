@@ -8,19 +8,40 @@ import ConfirmationComponent from "../components/ConfirmationComponent.js";
 
 const Confirmation = () => {
   const confirmDrink = async () => {
+    let parsedData = JSON.parse(localStorage.getItem("dataArray"));
+    let parsedName = JSON.parse(localStorage.getItem("drinkName"));
+
+    // console.log(parsedData, parsedName);
+    let ingredientsArray = [];
+    let ouncesArray = [];
+    let bottleSizeArray = [];
+    let bottleTypeArray = [];
+    parsedData.forEach((item, idx) => {
+      ingredientsArray.push(item.ingredient);
+      ouncesArray.push(item.ounces);
+      bottleSizeArray.push(item.bottleSize);
+      bottleTypeArray.push(item.bottleType);
+    });
+
     const response = await fetch("api/cocktails", {
       method: "post",
       body: JSON.stringify({
-        body: "hello",
-        created_on: Date.now(),
+          name: parsedName,
+          ingredients: ingredientsArray,
+          ounces: ouncesArray,
+          bottleSize: bottleSizeArray,
+          bottleType: bottleTypeArray,
       }),
       headers: {
         "content-type": "application/json",
       },
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
   };
+  // const convertDatatoString = () => {
+  //   console.log(JSON.parse(localStorage.getItem("dataArray")));
+  // };
   return (
     <>
       <main className={styles.main}>
@@ -29,7 +50,6 @@ const Confirmation = () => {
             <a className={styles.mainHeader}>Bartender&#39;s Best Friend</a>
           </Link>
         </h1>
-
         <div className={styles.topnav}>
           <Link href="/">
             <a className={styles.active}>Home</a>
@@ -54,19 +74,18 @@ const Confirmation = () => {
             </button>
           </div>
         </div>
-
-        {/* <p className={styles.code}>Photo from api call will go here</p> */}
         <p className={styles.description}>Here&#39;s what we have&#58;</p>
-        <p>
-          We will calculate DRINK_NAME for GALLONS/OUNCES/SERVINGS, a single
-          serving consists of&#58;<br></br>
-          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#40;Make
-          your final changes here&#41;
-        </p>
+        We will calculate {JSON.parse(
+          localStorage.getItem("drinkName")
+        )} for {JSON.parse(localStorage.getItem("quantity"))}{" "}
+        {localStorage.getItem("unit")}, a single serving consists of&#58;
+        <br></br>
         <ol>
-          <ConfirmationComponent />
-          <ConfirmationComponent />
-          <ConfirmationComponent />
+          {JSON.parse(localStorage.getItem("dataArray")).map(
+            (ingredient, i) => {
+              return <ConfirmationComponent ingredient={ingredient} key={i} />;
+            }
+          )}
         </ol>
       </main>
 

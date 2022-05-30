@@ -4,13 +4,6 @@ import React, { useState, useEffect } from "react";
 import IndividualDrinkComponent from "./IndividualDrinkComponent.js";
 
 const DrinkDatabaseComponent = (props) => {
-  // const [dbInfo, setDBInfo] = useState([]);
-  // const getDBList = async () => {
-  //   const response = await fetch("/api/cocktails");
-  //   const data = await response.json();
-  //   console.log(data);
-  //   setDBInfo([data.name]);
-  // };
   return (
     //end up mapping these individually
     <ol className={DrinkDatabaseCSS.verticalMenu}>
@@ -19,7 +12,7 @@ const DrinkDatabaseComponent = (props) => {
       </li>
       {props.cocktails.map((item, idx) => {
         return (
-          <IndividualDrinkComponent cocktail={item} key={idx + item.name} />
+          <IndividualDrinkComponent cocktail={item} key={idx + item.name} ingredients={item.ingredients}/>
         );
       })}
     </ol>

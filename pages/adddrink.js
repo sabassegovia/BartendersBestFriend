@@ -45,7 +45,7 @@ const AddDrink = () => {
 
         <p className={styles.description}>Lets add a drink!</p>
 
-        <AddDrinkComponent disableButton={setlockNextPage} />
+        <AddDrinkComponent setlockNextPage={setlockNextPage} />
       </main>
       <div className={styles.lrButtons}>
         <Link href="/">
@@ -54,7 +54,7 @@ const AddDrink = () => {
         <Link href="/batching">
           <button
             className={styles.rButton}
-            // disabled={lockNextPage}
+            disabled={lockNextPage}
             // onClick={setlockNextPage}
           >
             Continue

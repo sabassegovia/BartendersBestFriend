@@ -1,11 +1,10 @@
-import react from "React";
+import React from "react";
 import styles from "../styles/Home.module.css";
 
-const ConfirmationComponent = () => {
+const ConfirmationComponent = (props) => {
   return (
     <li>
-      &#9998;TOTALoz of &#9998;INGREDIENT&#x2C; using a &#9998;BOTTLE_SIZE
-      ml/L/Gal bottle
+      {props.ingredient.ounces}{" "}Oz. of {props.ingredient.ingredient}&#x2C; using a {props.ingredient.bottleSize}{props.ingredient.bottleType} bottle
     </li>
   );
 };
