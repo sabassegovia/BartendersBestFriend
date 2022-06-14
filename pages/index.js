@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import IndexCSS from "../styles/index.module.css";
 import { TiSocialInstagram } from "react-icons/ti";
@@ -41,7 +41,7 @@ export default function home({ IGData }) {
         </div>
 
         <div className={IndexCSS.photoMain}>
-          <Image
+          <img
             src={IGData.data[5].media_url}
             alt="cocktail photo"
             width="500px"
