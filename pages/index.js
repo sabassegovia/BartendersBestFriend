@@ -42,16 +42,16 @@ export default function home({ IGData }) {
 
         <div className={IndexCSS.photoMain}>
           <img
-            src={IGData.data[5].media_url}
+            src={IGData.data[9].media_url}
             alt="cocktail photo"
             width="500px"
             height="500px"
           />
         </div>
-        <p>{IGData.data[5].caption}</p>
+        <p>{IGData.data[9].caption}</p>
         <a
           className={IndexCSS.viewPostLink}
-          href={IGData.data[5].permalink}
+          href={IGData.data[9].permalink}
           target="_blank"
           rel="noopener noreferrer"
         >
