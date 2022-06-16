@@ -58,14 +58,14 @@ export default function home({ IGData }) {
           View Post
         </a>
         <div className={styles.grid}>
-          <a href="/adddrink" className={styles.card}>
+          {/* <a href="/adddrink" className={styles.card}> */}
           <Link href="adddrink" className={styles.card}>
             <h2>Add a drink &rarr;</h2>
           </Link>
           <Link href="adddrink">
             <p>Add a drink and calculate batch-sized servings</p>
           </Link>
-          </a>
+          {/* </a> */}
 
           <a href="drinkdatabase" className={styles.card}>
             <Link href="drinkdatabase">
